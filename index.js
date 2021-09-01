@@ -123,7 +123,7 @@ function paddr3(num) {
 		case 1 : num += '0' /// fallthrough
 		case 2 : num += '0' /// fallthrough
 		case 3 : break
-		default: throw 'Number too long: \'' + string + '\''
+		default: throw 'Number too long: \'' + num + '\''
 	}
 	return num
 }
@@ -133,7 +133,7 @@ function paddl2(num) {
 		case 0 : num = '0' + num /// fallthrough
 		case 1 : num = '0' + num /// fallthrough
 		case 2 : break
-		default: throw 'Number too long: \'' + string + '\''
+		default: throw 'Number too long: \'' + num + '\''
 	}
 	return num
 }
