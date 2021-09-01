@@ -32,6 +32,12 @@ for (let line of contents.split('\n')) {
 		continue
 	}
 
+	if (line.startsWith('COUNTER')) {
+		counter = Math.floor(Math.abs(Number(line.slice(7).trim())))
+		if (isNaN(counter)) throw 'Argument of COUNTER must be a number!'
+		continue
+	}
+
 	let first_char = line.charCodeAt(0)
 	if (first_char >= '0'.charCodeAt(0) && first_char <= '9'.charCodeAt(0)) {
 		/// new block
@@ -68,7 +74,9 @@ for (let line of contents.split('\n')) {
 if (lines !== '') block += lines
 if (block !== '') output += '\n\n' + block
 
-process.stdout.write(output)
+output = output.replaceAll('...', '…')
+
+process.stdout.write("\ufeff" + output)
 
 /// FUNCTIONS
 
