@@ -75,6 +75,7 @@ if (lines !== '') block += lines
 if (block !== '') output += '\n\n' + block
 
 output = output.replaceAll('...', '…')
+output = output.replaceAll('\'', '’')
 
 process.stdout.write("\ufeff" + output)
 
